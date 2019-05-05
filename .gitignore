@@ -7,7 +7,7 @@
 
 # dataset
 
-*.csv
+#*.csv
 #raw/
 #train/
 #test/
