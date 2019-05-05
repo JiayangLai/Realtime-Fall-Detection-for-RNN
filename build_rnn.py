@@ -43,10 +43,9 @@ class AFD_RNN(object):
         outputs = tf.reshape(cell_outputs, [-1, self.num_units])
         weights_outputs = self._get_variable_weights([self.num_units, self.class_num], 'outputs_weights')
         biases_outputs = self._get_variable_biases([self.class_num], 'outputs_biases')
-
-        predict = tf.reshape(tf.add(tf.matmul(outputs, weights_outputs), biases_outputs),
-                             [self.time_step, self.batch_size, self.class_num])
-
+    
+        predict = tf.reshape(tf.add(tf.matmul(outputs, weights_outputs), biases_outputs,name='predict'),
+                                 [self.time_step, self.batch_size, self.class_num])
         return predict
 
     def _get_variable_weights(self, shape, name):

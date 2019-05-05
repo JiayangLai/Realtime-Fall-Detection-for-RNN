@@ -17,13 +17,16 @@ class AFD_RNN_Train(object):
         net_config = parser_cfg_file('./config/rnn_net.cfg')
         self.rnn_net = AFD_RNN(net_config)
         self.predict = self.rnn_net.build_net_graph()
+
+      #  self.predict =  self.predict (name = 'predict')
+
         self.label = tf.placeholder(tf.float32, [None, self.rnn_net.time_step, self.rnn_net.class_num])
 
     def _compute_loss(self):
         with tf.name_scope('loss'):
             # [batchszie, time_step, class_num] ==> [time_step][batchsize, class_num]
-            predict = tf.unstack(self.predict, axis=0)
-            label = tf.unstack(self.label, axis=1)
+            predict = tf.unstack(self.predict, axis=0) # [64,11]
+            label = tf.unstack(self.label, axis=1) #[,11]
 
             loss = [tf.nn.softmax_cross_entropy_with_logits(labels=label[i], logits=predict[i]) for i in range(self.rnn_net.time_step) ]
             loss = tf.reduce_mean(loss)
@@ -36,6 +39,7 @@ class AFD_RNN_Train(object):
 
         with tf.name_scope('accuracy'):
             predict = tf.transpose(self.predict, [1,0,2])
+#            print(predict.shape())
             correct_pred = tf.equal(tf.argmax(self.label, 2), tf.argmax(predict, axis=2))
             accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
 
@@ -44,6 +48,10 @@ class AFD_RNN_Train(object):
 
         with tf.Session() as sess:
             sess.run(tf.global_variables_initializer())
+            # ckpt = tf.train.get_checkpoint_state('./model/')
+            # if ckpt and ckpt.model_checkpoint_path:
+            #     saver.restore(sess, ckpt.model_checkpoint_path)
+            #     print('Module restore...')
 
             for step in range(1, self.train_iterior+1):
                 x, y = dataset.get_batch(self.rnn_net.batch_size)
@@ -56,7 +64,7 @@ class AFD_RNN_Train(object):
                 if step%10 == 0:
                     compute_accuracy = sess.run(accuracy, feed_dict=feed_dict)
                     self.train_logger.info('train step = %d,loss = %f,accuracy = %f'%(step, compute_loss, compute_accuracy))
-                if step%1000 == 0:
+                if step%100 == 0:
                     save_path = saver.save(sess, './model/model.ckpt')
                     self.train_logger.info("train step = %d ,model save to =%s" % (step, save_path))
 
@@ -86,9 +94,11 @@ class AFD_RNN_Train(object):
 if __name__ == '__main__':
     train_config = parser_cfg_file('./config/train.cfg')
     train = AFD_RNN_Train(train_config)
+
     train.train_rnn()
 
     # a = tf.zeros([1,2,3])
+
     # b = tf.unstack(a, axis=1)
     # c = tf.zeros([2,1,3])
     # sess = tf.Session()

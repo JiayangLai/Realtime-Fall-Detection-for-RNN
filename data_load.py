@@ -20,13 +20,20 @@ class DataLoad(object):
 
         self._all_data = pd.DataFrame()
         for f in self._data_file_list:
-            # 读取所有csv文件
+            # for f1 in os.listdir(f):
+            #     file_path = os.path.join(f,f1)
+            # # 读取所有csv文件
+            #     if 'csv' in f1:
+            #         data = pd.read_csv(file_path, index_col=False)
+
             if 'csv' in f:
                 data = pd.read_csv(f, index_col=False)
                 self._all_data = self._all_data.append(data)
 
+
     def get_batch(self, batchsize, start_list=None):
         data_size = len(self._all_data.acc_x.values)
+      #  print(data_size)
 
         if start_list is None:
             start_pos = [random.randint(1, data_size - self._extract_data_size) for _ in range(data_size)]
@@ -41,15 +48,17 @@ class DataLoad(object):
         label_y = []
         for i in range(batchsize):
 
-            train_x.append(self._all_data.iloc[start_pos[i]:start_pos[i]+self._extract_data_size, 0:3].values)
+            train_x.append(self._all_data.iloc[start_pos[i]:start_pos[i] + self._extract_data_size, 0:3].values)
             label = [[0 for _ in range(self._class_num)] for _ in range(self._extract_data_size)]
-
             for s in range(self._extract_data_size):
-                j = self._all_data.iloc[start_pos[i] + s:start_pos[i] + s + 1, 6].values[0]
+                j = int(self._all_data.iloc[start_pos[i] + s:start_pos[i] + s + 1, 6].values[0])
                 label[s][j] = 1
+                #print(s, j)
             label_y.append(label)
 
         return np.array(train_x), np.array(label_y)
+
+
 
     def get_test_data(self):
         """
@@ -64,7 +73,7 @@ class DataLoad(object):
 
 
 if __name__ == '__main__':
-    data = DataLoad('./dataset/train/', time_step=150, class_num=11)
+    data = DataLoad('./dataset/train/', time_step=50, class_num=11)
     x, y = data.get_batch(50)
     print(x.shape)
     print(y.shape)
