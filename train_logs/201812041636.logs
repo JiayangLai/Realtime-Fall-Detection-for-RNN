@@ -1,0 +1,11 @@
+2018-12-04 16:51:14,170 - train_rnn.py[line:62] - INFO: train step = 10,loss = 0.212659,accuracy = 0.958750
+2018-12-04 16:52:22,558 - train_rnn.py[line:62] - INFO: train step = 20,loss = 0.150168,accuracy = 0.965312
+2018-12-04 16:53:31,600 - train_rnn.py[line:62] - INFO: train step = 30,loss = 0.060785,accuracy = 0.991458
+2018-12-04 16:54:39,447 - train_rnn.py[line:62] - INFO: train step = 40,loss = 0.032775,accuracy = 0.997396
+2018-12-04 16:55:44,507 - train_rnn.py[line:62] - INFO: train step = 50,loss = 0.102750,accuracy = 0.979062
+2018-12-04 16:56:50,833 - train_rnn.py[line:62] - INFO: train step = 60,loss = 0.104491,accuracy = 0.978646
+2018-12-04 16:57:57,328 - train_rnn.py[line:62] - INFO: train step = 70,loss = 0.083249,accuracy = 0.988021
+2018-12-04 16:59:06,700 - train_rnn.py[line:62] - INFO: train step = 80,loss = 0.155947,accuracy = 0.968750
+2018-12-04 17:00:15,942 - train_rnn.py[line:62] - INFO: train step = 90,loss = 0.069069,accuracy = 0.991250
+2018-12-04 17:01:24,015 - train_rnn.py[line:62] - INFO: train step = 100,loss = 0.077507,accuracy = 0.986146
+2018-12-04 17:02:32,917 - train_rnn.py[line:62] - INFO: train step = 110,loss = 0.160896,accuracy = 0.968333

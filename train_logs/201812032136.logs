@@ -1,0 +1,5 @@
+2018-12-03 21:38:22,005 - train_rnn.py[line:58] - INFO: train step = 10,loss = 2.210268,accuracy = 0.294167
+2018-12-03 21:39:06,573 - train_rnn.py[line:58] - INFO: train step = 20,loss = 2.084738,accuracy = 0.446979
+2018-12-03 21:39:52,838 - train_rnn.py[line:58] - INFO: train step = 30,loss = 1.877009,accuracy = 0.473750
+2018-12-03 21:40:56,979 - train_rnn.py[line:58] - INFO: train step = 40,loss = 1.765504,accuracy = 0.426875
+2018-12-03 21:41:45,381 - train_rnn.py[line:58] - INFO: train step = 50,loss = 1.655317,accuracy = 0.454167

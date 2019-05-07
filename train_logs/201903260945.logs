@@ -1,0 +1,12 @@
+2019-03-26 09:46:03,955 - train_rnn.py[line:63] - INFO: train step = 10,loss = 0.705964,accuracy = 0.676458
+2019-03-26 09:46:14,427 - train_rnn.py[line:63] - INFO: train step = 20,loss = 0.636265,accuracy = 0.674583
+2019-03-26 09:46:24,825 - train_rnn.py[line:63] - INFO: train step = 30,loss = 0.721106,accuracy = 0.580833
+2019-03-26 09:46:35,310 - train_rnn.py[line:63] - INFO: train step = 40,loss = 0.689674,accuracy = 0.576771
+2019-03-26 09:46:45,842 - train_rnn.py[line:63] - INFO: train step = 50,loss = 0.606820,accuracy = 0.704479
+2019-03-26 09:46:56,302 - train_rnn.py[line:63] - INFO: train step = 60,loss = 0.611933,accuracy = 0.698021
+2019-03-26 09:47:06,779 - train_rnn.py[line:63] - INFO: train step = 70,loss = 0.639437,accuracy = 0.708854
+2019-03-26 09:47:17,270 - train_rnn.py[line:63] - INFO: train step = 80,loss = 0.641214,accuracy = 0.652812
+2019-03-26 09:47:27,733 - train_rnn.py[line:63] - INFO: train step = 90,loss = 0.575424,accuracy = 0.733125
+2019-03-26 09:47:38,342 - train_rnn.py[line:63] - INFO: train step = 100,loss = 0.651932,accuracy = 0.628438
+2019-03-26 09:47:48,767 - train_rnn.py[line:63] - INFO: train step = 110,loss = 0.621250,accuracy = 0.664479
+2019-03-26 09:47:59,643 - train_rnn.py[line:63] - INFO: train step = 120,loss = 0.563458,accuracy = 0.719271
