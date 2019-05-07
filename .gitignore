@@ -15,7 +15,7 @@
 #kalman/
 
 # train logs
-*.logs
+#*.logs
 
 # model
 *ckpt*
