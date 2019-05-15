@@ -23,6 +23,7 @@ class AFD_RNN_Train(object):
       #  self.predict =  self.predict (name = 'predict')
 
         self.label = tf.placeholder(tf.float32, [None, self.rnn_net.time_step, self.rnn_net.class_num])#设置变量label
+                                                       #在这个项目种，timestep是150 classnum是11 batchsize是64
 
     def _compute_loss(self):
         with tf.name_scope('loss'):#真的就是命名
