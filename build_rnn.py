@@ -3,7 +3,10 @@ import tensorflow as tf
 class AFD_RNN(object):
 
     def __init__(self, net_config, test_batch_size=None, time_step=None):
-
+        """
+        初始化完成了所有超参的设置
+        这些参数来自netconfig
+        """
         self.class_num = int(net_config['class_num'])
         self.num_units = int(net_config['num_units'])
         self.senor_data_num = int(net_config['senor_data_num'])
@@ -19,6 +22,10 @@ class AFD_RNN(object):
             self.batch_size = test_batch_size
 
     def build_net_graph(self):
+        """
+        不管是train 还是test 这个都是搭建网络的过程
+        
+        """
         self.input_tensor = tf.placeholder(tf.float32, [None, self.time_step, self.senor_data_num])
 
         # 创建输出层

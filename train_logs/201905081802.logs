@@ -1,0 +1,15 @@
+2019-05-08 18:03:08,690 - train_rnn.py[line:66] - INFO: train step = 10,loss = 1.008465,accuracy = 0.734688
+2019-05-08 18:03:23,010 - train_rnn.py[line:66] - INFO: train step = 20,loss = 0.693918,accuracy = 0.760417
+2019-05-08 18:03:37,370 - train_rnn.py[line:66] - INFO: train step = 30,loss = 0.571106,accuracy = 0.812813
+2019-05-08 18:03:51,962 - train_rnn.py[line:66] - INFO: train step = 40,loss = 0.365725,accuracy = 0.888125
+2019-05-08 18:04:06,310 - train_rnn.py[line:66] - INFO: train step = 50,loss = 0.318930,accuracy = 0.892604
+2019-05-08 18:04:21,075 - train_rnn.py[line:66] - INFO: train step = 60,loss = 0.329906,accuracy = 0.881771
+2019-05-08 18:04:35,586 - train_rnn.py[line:66] - INFO: train step = 70,loss = 0.368471,accuracy = 0.878125
+2019-05-08 18:04:50,357 - train_rnn.py[line:66] - INFO: train step = 80,loss = 0.318651,accuracy = 0.881042
+2019-05-08 18:05:04,721 - train_rnn.py[line:66] - INFO: train step = 90,loss = 0.399130,accuracy = 0.856250
+2019-05-08 18:05:19,094 - train_rnn.py[line:66] - INFO: train step = 100,loss = 0.323531,accuracy = 0.879062
+2019-05-08 18:05:20,072 - train_rnn.py[line:69] - INFO: train step = 100 ,model save to =./model/model.ckpt
+2019-05-08 18:05:34,745 - train_rnn.py[line:66] - INFO: train step = 110,loss = 0.297904,accuracy = 0.886563
+2019-05-08 18:05:48,996 - train_rnn.py[line:66] - INFO: train step = 120,loss = 0.355595,accuracy = 0.882917
+2019-05-08 18:06:03,679 - train_rnn.py[line:66] - INFO: train step = 130,loss = 0.284171,accuracy = 0.886354
+2019-05-08 18:06:17,897 - train_rnn.py[line:66] - INFO: train step = 140,loss = 0.258695,accuracy = 0.906979

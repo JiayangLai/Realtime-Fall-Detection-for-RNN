@@ -16,7 +16,7 @@ def extract_data(data_file, sampling_frequency):
     从mobileFall中提取数据，用于做实验测试
     :param data_file:  原始数据文件
     :param sampling_frequency: 原始数据采集频率
-    :return:
+    :return: 没有return，但是会在 './dataset/raw/'下保存有6轴及标签的csv文件
     """
     data = pd.read_csv(data_file, index_col=0)
     data_size = len(data.label)
@@ -24,7 +24,7 @@ def extract_data(data_file, sampling_frequency):
         data.iat[i, 10] = Label[data.iloc[i, 10]]
 
     col_data = np.arange(0, data_size, int(sampling_frequency/50))
-    extract_data = data.iloc[col_data, [1, 2, 3, 4, 5, 6, 10]]
+    extract_data = data.iloc[col_data, [1, 2, 3, 4, 5, 6, 10]]#6轴及标签
 
     save_path = './dataset/raw/' + os.path.abspath(os.path.dirname(data_file)+os.path.sep+".").replace(RAW_DATA_PATH, '')
     if not os.path.exists(save_path):
@@ -35,8 +35,8 @@ def extract_data(data_file, sampling_frequency):
 def find_all_data_and_extract(path):
     """
     递归的查找所有文件并进行转化
-    :param path:
-    :return:
+    :param path: 输入数据的根文件夹
+    :return:没有return，但是会对根文件夹及其所有子文件夹下的所有csv文件进行extract_data操作，即提取6轴数据及标签并储存到'./dataset/raw/'中
     """
     if not os.path.exists(path):
         print('路径存在问题：', path)
@@ -53,7 +53,7 @@ def parser_cfg_file(cfg_file):
     """
     读取配置文件中的信息
     :param cfg_file: 文件路径
-    :return:
+    :return:把cfg文件转换成一个字典变量
     """
     content_params = {}
 
@@ -75,7 +75,7 @@ def parser_cfg_file(cfg_file):
 
 def show_data(data, name=None):
     '''
-    show data
+    show data 绘图函数
     :param data: DataFrame
     :return:
     '''
@@ -166,6 +166,7 @@ def find_all_data_and_filtrate(path):
     for i in os.listdir(path):
         if os.path.isfile(path+"/"+i):
             if 'csv' in i:
+                print(i)
                 data = pd.read_csv(path+"/"+i)
                 data = kalman_filter(data)
                 data.to_csv(path+"/"+i, index=False)

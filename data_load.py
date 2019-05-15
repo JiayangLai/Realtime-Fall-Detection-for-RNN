@@ -36,6 +36,7 @@ class DataLoad(object):
       #  print(data_size)
 
         if start_list is None:
+            #每次取batch都是随机取一段，这样的话，试验数据就应该要用一整段的，如果用截取的办法，会识别成某种运动，有某种周期的
             start_pos = [random.randint(1, data_size - self._extract_data_size) for _ in range(data_size)]
         else:
             if len(start_list) != batchsize:
